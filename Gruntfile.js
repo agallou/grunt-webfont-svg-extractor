@@ -1,11 +1,3 @@
-/*
- * webfont-extractor
- * 
- *
- * Copyright (c) 2014 
- * Licensed under the MIT license.
- */
-
 'use strict';
 
 module.exports = function (grunt) {
@@ -35,18 +27,12 @@ module.exports = function (grunt) {
     webfont_extractor: {
       default_options: {
         options: {
-        },
-        files: {
-          'tmp/default_options': ['test/fixtures/testing', 'test/fixtures/123']
-        }
-      },
-      custom_options: {
-        options: {
-          separator: ': ',
-          punctuation: ' !!!'
-        },
-        files: {
-          'tmp/custom_options': ['test/fixtures/testing', 'test/fixtures/123']
+          fontPath: "test/fixtures/glyphicons-halflings-regular.svg",
+          cssPath: "test/fixtures/bootstrap.css",
+          outputDir: "tmp/",
+          settings: {
+            regexp: /.(glyphicon-.*):before/
+          }
         }
       }
     },
