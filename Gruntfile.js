@@ -25,16 +25,29 @@ module.exports = function (grunt) {
 
     // Configuration to be run (and then tested).
     webfont_extractor: {
-      default_options: {
+      test_glyphicon: {
         options: {
           fontPath: "test/fixtures/glyphicons-halflings-regular.svg",
           cssPath: "test/fixtures/bootstrap.css",
           outputDir: "tmp/",
+          translate: "ascent",
           settings: {
             regexp: /.(glyphicon-.*):before/
           }
         }
+      },
+      test_fontawesome: {
+        options: {
+          fontPath: "test/fixtures/fontawesome-webfont.svg",
+          cssPath: "test/fixtures/font-awesome.css",
+          outputDir: "tmp/",
+          translate: "width",
+          settings: {
+            regexp: /.(fa-.*):before/
+          }
+        }
       }
+
     },
 
     // Unit tests.

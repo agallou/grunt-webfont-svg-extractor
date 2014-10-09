@@ -5,6 +5,7 @@ var XMLSerializer = require('xmldom').XMLSerializer;
 var xpath = require('xpath');
 var css = require('css');
 var qs = require('querystring');
+var svgPath = require('svgpath');
 
 module.exports = function (grunt) {
 
@@ -12,6 +13,7 @@ module.exports = function (grunt) {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
+      translate: "width",
     });
 
     if (typeof options.fontPath === 'undefined') {
@@ -42,7 +44,20 @@ module.exports = function (grunt) {
 
     var doc = new DOMParser().parseFromString(grunt.file.read(options.fontPath), 'text/xml');
 
+    var fontFace = doc.documentElement.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'font-face').item(0);
+    var unitsPerEm = fontFace.getAttribute('units-per-em');
+
+    var fontHorizAdvX = doc.documentElement.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'font').item(0).getAttribute('horiz-adv-x');
+
+    var descent = fontFace.getAttribute('descent');
+    var ascent = fontFace.getAttribute('ascent');
+
+    var missingGlyph = doc.documentElement.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'missing-glyph').item(0);
+    var defaultHorizAdvX = missingGlyph.getAttribute('horiz-adv-x');
+
     var glyphs = doc.documentElement.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'glyph');
+    var scale = 1000 / unitsPerEm;
+
     for (var i=0; i<glyphs.length;i++) {
       var item = glyphs.item(i);
       var svgContent = new XMLSerializer().serializeToString(item);
@@ -51,22 +66,29 @@ module.exports = function (grunt) {
       var charCode = unicode.charCodeAt(0);
       var iconName = unicodes[charCode];
       if (typeof iconName !== 'undefined') {
-        var PIXEL = 128;
-        var advWidth = 12*PIXEL;
         var template =
-          '<svg width="{width}" height="{height}" viewBox="0 0 {width} {height}" xmlns="http://www.w3.org/2000/svg">' +
-          '<g transform="translate({shiftX} {shiftY})">' +
-          '<g transform="scale(1 -1) translate(0 -1280)">' +
-          '<path d="{path}" />' +
-          '</g></g>' +
+          '<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">' +
+          '<path d="{d}" />' +
           '</svg>';
 
+        var horizAdvX = item.getAttribute('horiz-adv-x');
+        var width = horizAdvX || fontHorizAdvX;
+        var translateValue = options.translate === 'width' ? -ascent : -width;
+
+        var d = new svgPath(path)
+          .translate(0, translateValue)
+          .scale(scale, -scale)
+          .abs()
+          .round(1)
+          .rel()
+          .round(1)
+          .toString()
+        ;
+        
         var params = {
-         shiftX: -(-(14*PIXEL - advWidth)/2),
-         shiftY: -(-2*PIXEL),
-         width: 14*PIXEL,
-         height: 14*PIXEL,
-         path: path
+          width: (width*scale).toFixed(1),
+          height: 1000,
+          d: d
         };
 
         /*jshint -W083 */
@@ -75,6 +97,7 @@ module.exports = function (grunt) {
         });
 
         var outFilepath = options.outputDir + iconName + '.svg';
+
         grunt.file.write(outFilepath, template);
       }
     }
