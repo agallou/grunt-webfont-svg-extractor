@@ -16,6 +16,14 @@ module.exports = function (grunt) {
       translate: "width",
     });
 
+    if (options.preset === 'glyphicon') {
+       options.translate = "ascent";
+       options.regexp = /.(glyphicon-.*):before/;
+    } else if (options.preset === 'fontawesome') {
+       options.translate = "width";
+       options.regexp = /.(fa-.*):before/;
+    }
+
     var requiredOptions = [
       'fontPath',
       'cssPath',

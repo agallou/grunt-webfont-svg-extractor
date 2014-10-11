@@ -30,8 +30,7 @@ module.exports = function (grunt) {
           fontPath: "test/fixtures/glyphicons-halflings-regular.svg",
           cssPath: "test/fixtures/bootstrap.css",
           outputDir: "tmp/",
-          translate: "ascent",
-          regexp: /.(glyphicon-.*):before/
+          preset: "glyphicon"
         }
       },
       test_fontawesome: {
@@ -39,8 +38,7 @@ module.exports = function (grunt) {
           fontPath: "test/fixtures/fontawesome-webfont.svg",
           cssPath: "test/fixtures/font-awesome.css",
           outputDir: "tmp/",
-          translate: "width",
-          regexp: /.(fa-.*):before/
+          preset: "fontawesome"
         }
       }
 
