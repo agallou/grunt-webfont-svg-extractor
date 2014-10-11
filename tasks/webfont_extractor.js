@@ -18,6 +18,7 @@ module.exports = function (grunt) {
 
     var requiredOptions = [
       'fontPath',
+      'cssPath',
       'outputDir',
     ];
 
