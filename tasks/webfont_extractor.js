@@ -71,6 +71,8 @@ module.exports = function (grunt) {
     var glyphs = doc.documentElement.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'glyph');
     var scale = 1000 / unitsPerEm;
 
+    var iconCount = 0;
+
     for (var i=0; i<glyphs.length;i++) {
       var item = glyphs.item(i);
       var svgContent = new XMLSerializer().serializeToString(item);
@@ -79,6 +81,13 @@ module.exports = function (grunt) {
       var charCode = unicode.charCodeAt(0);
       var iconName = unicodes[charCode];
       if (typeof iconName !== 'undefined') {
+
+        if (typeof options.icons !== 'undefined' && options.icons.indexOf(iconName) === -1) {
+          continue;
+        }
+
+        iconCount++;
+
         var template =
           '<svg width="{width}" height="{height}" xmlns="http://www.w3.org/2000/svg">' +
           '<path d="{d}" />' +
@@ -114,7 +123,7 @@ module.exports = function (grunt) {
         grunt.file.write(outFilepath, template);
       }
     }
-   grunt.log.writeln('"' + i + '" svg files created.');
+   grunt.log.writeln('"' + iconCount + '" svg files created.');
 
   });
 

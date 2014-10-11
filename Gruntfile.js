@@ -38,7 +38,13 @@ module.exports = function (grunt) {
           fontPath: "test/fixtures/fontawesome-webfont.svg",
           cssPath: "test/fixtures/font-awesome.css",
           outputDir: "tmp/",
-          preset: "fontawesome"
+          preset: "fontawesome",
+          icons: [
+            "fa-smile-o",
+            "fa-frown-o",
+            "fa-male",
+            "fa-female",
+          ]
         }
       }
 
