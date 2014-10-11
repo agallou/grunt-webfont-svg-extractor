@@ -16,13 +16,16 @@ module.exports = function (grunt) {
       translate: "width",
     });
 
-    if (typeof options.fontPath === 'undefined') {
-      grunt.warn('option fontPath must be defined');
-    }
+    var requiredOptions = [
+      'fontPath',
+      'outputDir',
+    ];
 
-    if (typeof options.outputDir === 'undefined') {
-      grunt.warn('option outputDir must be defined');
-    }
+    requiredOptions.forEach(function(key) {
+      if (typeof options[key] === 'undefined') {
+        grunt.warn('option ' + key + ' must be defined');
+      }
+    });
 
     var selectorRegexp = options.settings.regexp;
 
