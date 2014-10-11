@@ -29,9 +29,7 @@ grunt.initConfig({
       fontPath: "test/fixtures/glyphicons-halflings-regular.svg",
       cssPath: "test/fixtures/bootstrap.css",
       outputDir: "tmp/",
-      settings: {
-        regexp: /.(glyphicon-.*):before/
-      }
+      regexp: /.(glyphicon-.*):before/
     }
   },
 })

@@ -20,6 +20,7 @@ module.exports = function (grunt) {
       'fontPath',
       'cssPath',
       'outputDir',
+      'regexp'
     ];
 
     requiredOptions.forEach(function(key) {
@@ -28,7 +29,7 @@ module.exports = function (grunt) {
       }
     });
 
-    var selectorRegexp = options.settings.regexp;
+    var selectorRegexp = options.regexp;
 
     var obj = css.parse(grunt.file.read(options.cssPath));
     var unicodes = {};

@@ -31,9 +31,7 @@ module.exports = function (grunt) {
           cssPath: "test/fixtures/bootstrap.css",
           outputDir: "tmp/",
           translate: "ascent",
-          settings: {
-            regexp: /.(glyphicon-.*):before/
-          }
+          regexp: /.(glyphicon-.*):before/
         }
       },
       test_fontawesome: {
@@ -42,9 +40,7 @@ module.exports = function (grunt) {
           cssPath: "test/fixtures/font-awesome.css",
           outputDir: "tmp/",
           translate: "width",
-          settings: {
-            regexp: /.(fa-.*):before/
-          }
+          regexp: /.(fa-.*):before/
         }
       }
 
