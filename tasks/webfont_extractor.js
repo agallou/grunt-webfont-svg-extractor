@@ -18,10 +18,10 @@ module.exports = function (grunt) {
 
     if (options.preset === 'glyphicon') {
        options.translate = "ascent";
-       options.regexp = /.(glyphicon-.*):before/;
+       options.regexp = /.glyphicon-(.*):before/;
     } else if (options.preset === 'fontawesome') {
        options.translate = "width";
-       options.regexp = /.(fa-.*):before/;
+       options.regexp = /.fa-(.*):before/;
     }
 
     var requiredOptions = [

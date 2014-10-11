@@ -31,8 +31,8 @@ exports.webfont_extractor = {
     test.expect(1);
 
 //    var actual = grunt.file.read('tmp/bootstrap.svg');
-    var actual = grunt.file.read('tmp/glyphicon-align-left.svg');
-    var expected = grunt.file.read('test/expected/glyphicon-align-left.svg');
+    var actual = grunt.file.read('tmp/align-left.svg');
+    var expected = grunt.file.read('test/expected/align-left.svg');
     test.equal(actual, expected, 'should describe what the default behavior is.');
 
     test.done();

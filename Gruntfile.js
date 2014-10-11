@@ -40,10 +40,10 @@ module.exports = function (grunt) {
           outputDir: "tmp/",
           preset: "fontawesome",
           icons: [
-            "fa-smile-o",
-            "fa-frown-o",
-            "fa-male",
-            "fa-female",
+            "smile-o",
+            "frown-o",
+            "male",
+            "female",
           ]
         }
       }
