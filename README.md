@@ -29,7 +29,7 @@ grunt.initConfig({
       fontPath: "test/fixtures/glyphicons-halflings-regular.svg",
       cssPath: "test/fixtures/bootstrap.css",
       outputDir: "tmp/",
-      regexp: /.(glyphicon-.*):before/
+      preset: "glyphicon"
     }
   },
 })
@@ -44,9 +44,34 @@ Path to the original webfont.
 
 #### options.cssPath
 Type: `String`
-Default value: `'.'`
 
 Path to the associated CSS file.
+
+#### options.outputDir
+Type: `String`
+
+Directory to put the generated SVG files.
+
+#### options.preset
+Type: `String`
+Values: `glyphicon` or `fontawesome` or `undefined`
+
+Which font is is used. If none advanced options must be defined.
+
+### Advanced options
+
+Those options are defined when the `preset` option has been set. You only need to use them if you want to use a font that is not in the presets.
+
+#### options.regexp
+Type: `Regexp`
+
+Regexp to limit the list of CSS selectors (webfont-svg-extractor uses the CSS file to match the Unicode Private Use Area characters and find the associated classname) and the part of the classname used to generate the SVG filename.
+
+#### options.translate
+Type: `String`
+Values: `width` or `ascent`
+
+Internal usage.
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
