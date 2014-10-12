@@ -24,7 +24,7 @@ module.exports = function (grunt) {
     },
 
     // Configuration to be run (and then tested).
-    webfont_extractor: {
+    webfont_svg_extractor: {
       test_glyphicon: {
         options: {
           fontPath: "test/fixtures/glyphicons-halflings-regular.svg",

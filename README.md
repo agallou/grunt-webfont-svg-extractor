@@ -8,13 +8,13 @@ This plugin requires Grunt.
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
 
 ```shell
-npm install webfont-extractor --save-dev
+npm install grunt-webfont-svg-extractor --save-dev
 ```
 
 Once the plugin has been installed, it may be enabled inside your Gruntfile with this line of JavaScript:
 
 ```js
-grunt.loadNpmTasks('webfont-extractor');
+grunt.loadNpmTasks('grunt-webfont-svg-extractor');
 ```
 
 ## The "webfont_extractor" task
@@ -24,7 +24,7 @@ In your project's Gruntfile, add a section named `webfont_extractor` to the data
 
 ```js
 grunt.initConfig({
-  webfont_extractor: {
+  webfont_svg_extractor: {
     options: {
       fontPath: "test/fixtures/glyphicons-halflings-regular.svg",
       cssPath: "test/fixtures/bootstrap.css",

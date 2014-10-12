@@ -9,7 +9,7 @@ var svgPath = require('svgpath');
 
 module.exports = function (grunt) {
 
-  grunt.registerMultiTask('webfont_extractor', 'Split webfont SVG into separate SVG files', function () {
+  grunt.registerMultiTask('webfont_svg_extractor', 'Split webfont SVG into separate SVG files', function () {
 
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
