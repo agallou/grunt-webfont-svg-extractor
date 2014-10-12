@@ -4,7 +4,7 @@
 
 This plugins takes a webfont SVG file and it's associated CSS file and generates one SVG file per icon.
 
-Could be used in association with the [Webfont](https://www.npmjs.org/package/grunt-webfont) plugin to pick some icons from multiple librairies and put them in the same webfont.
+Could be used in association with the [Webfont](https://www.npmjs.org/package/grunt-webfont) plugin to pick some icons from multiple librairies and put them in the same webfont (you can check out an example [here](https://github.com/agallou/grunt-webfont-svg-extractor/tree/master/example).
 
 ## Getting Started
 This plugin requires Grunt.
