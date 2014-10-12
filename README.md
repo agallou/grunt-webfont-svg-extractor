@@ -1,6 +1,10 @@
-# webfont-extractor
+# grunt-webfont-extractor
 
 > Split webfont SVG into separate SVG files
+
+This plugins takes a webfont SVG file and it's associated CSS file and generates one SVG file per icon.
+
+Could be used in association with the [Webfont](https://www.npmjs.org/package/grunt-webfont) plugin to pick some icons from multiple librairies and put them in the same webfont.
 
 ## Getting Started
 This plugin requires Grunt.
@@ -18,6 +22,21 @@ grunt.loadNpmTasks('grunt-webfont-svg-extractor');
 ```
 
 ## The "webfont_extractor" task
+
+## Example
+
+The task will take 2 files : 
+
+* `glyphicons-halflings-regular.svg`
+* `bootstrap.css`
+
+And generate multiple files :
+
+* `zoom-out.svg`
+* `zoom-in.svg`
+* `wrench.svg`
+* `warning-sign.svg`
+* ...
 
 ### Overview
 In your project's Gruntfile, add a section named `webfont_extractor` to the data object passed into `grunt.initConfig()`.
