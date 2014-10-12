@@ -1,5 +1,5 @@
 {
-  "name": "webfont-extractor",
+  "name": "grunt-webfont-extractor",
   "version": "0.0.1",
   "description": "Split webfont SVG into separate SVG files",
   "repository": "",
