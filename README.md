@@ -1,4 +1,4 @@
-# grunt-webfont-extractor
+# grunt-webfont-svg-extractor
 
 > Split webfont SVG into separate SVG files
 
