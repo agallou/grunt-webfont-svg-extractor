@@ -14,6 +14,7 @@ module.exports = function (grunt) {
     // Merge task-specific and/or target-specific options with these defaults.
     var options = this.options({
       translate: "width",
+      size: 1000
     });
 
     if (options.preset === 'glyphicon') {
@@ -69,7 +70,7 @@ module.exports = function (grunt) {
     var defaultHorizAdvX = missingGlyph.getAttribute('horiz-adv-x');
 
     var glyphs = doc.documentElement.getElementsByTagNameNS('http://www.w3.org/2000/svg', 'glyph');
-    var scale = 1000 / unitsPerEm;
+    var scale = options.size / unitsPerEm;
 
     var iconCount = 0;
 
@@ -109,7 +110,7 @@ module.exports = function (grunt) {
         
         var params = {
           width: (width*scale).toFixed(1),
-          height: 1000,
+          height: options.size,
           d: d
         };
 
