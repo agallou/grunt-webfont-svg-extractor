@@ -73,13 +73,19 @@ Directory to put the generated SVG files.
 
 #### options.preset
 Type: `String`
-Values: `glyphicon` or `fontawesome` or `undefined`
+Values: `glyphicon` or `fontawesome` or `glyphicon_pro` or `undefined`
 
 Which font is is used. If none advanced options must be defined.
 
 ### Advanced options
 
 Those options are defined when the `preset` option has been set. You only need to use them if you want to use a font that is not in the presets.
+
+#### options.size
+Type: `Int`
+Default : 1000
+
+Size of the generated SVG file. Usefull when you have cutom SVG icons that you want to merge in one font file (all font must have the same size).
 
 #### options.regexp
 Type: `Regexp`
