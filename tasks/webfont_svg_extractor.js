@@ -23,6 +23,9 @@ module.exports = function (grunt) {
     } else if (options.preset === 'fontawesome') {
        options.translate = "width";
        options.regexp = /.fa-(.*):before/;
+    } else if (options.preset === 'glyphicon_pro') {
+       options.translate = "width";
+       options.regexp = /.glyphicons-(.*):before/;
     }
 
     var requiredOptions = [
