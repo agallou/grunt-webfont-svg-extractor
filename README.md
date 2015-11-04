@@ -103,6 +103,10 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 
 ## Release History
 
+### 0.0.4
+
+* fix `glyphicon_pro` configuration
+
 ### 0.0.3
 
 * add `glyphicon_pro` preset
