@@ -24,7 +24,7 @@ module.exports = function (grunt) {
        options.translate = "width";
        options.regexp = /.fa-(.*):before/;
     } else if (options.preset === 'glyphicon_pro') {
-       options.translate = "width";
+       options.translate = "ascent";
        options.regexp = /.glyphicons-(.*):before/;
     }
 
