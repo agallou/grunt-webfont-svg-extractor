@@ -28,9 +28,9 @@
     "test": "grunt test"
   },
   "dependencies": {
-    "xmldom": "~0.1.19",
+    "xmldom": "0.1.19",
     "xpath": "0.0.7",
-    "css": "~2.1.0",
-    "svgpath": "~1.0.6"
+    "css": "2.1.0",
+    "svgpath": "1.0.6"
   }
 }
